@@ -1,6 +1,6 @@
 # Number Guessing Game (Python)
 
-A feature-rich command-line number guessing game, created as a beginner-friendly project.
+A feature-rich command-line number guessing game, created as a beginner-friendly project. This project was created while learning Git and Python
 
 ## Features
 
