@@ -23,9 +23,8 @@ This game teaches the basics of:
 - User input/output
 - Input validation and error handling
 - Simple high-score logic
-- (And now, basic Git/version control)
 
-Perfect for beginner Python learners and interview prep!
+Perfect for beginner Python learners!
 
 ## Author
 
