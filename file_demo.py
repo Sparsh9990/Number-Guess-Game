@@ -9,9 +9,10 @@
 
 # print("File contents:")
 # print(content)
+
 FILENAME = "notes.txt"
 
-# Load existing tasks (if file exists)
+# Load existing notes (if file exists)
 notes = []
 
 try:
@@ -24,19 +25,52 @@ except FileNotFoundError:
     # First run: no file yet.
     pass
 
+def show_notes(notes_list):
+    if not notes_list:
+        print("\nNo notes yet.")
+        return
+    print("\nYour notes:")
+    for i, t in enumerate(notes_list, start=1):
+        print(f"{i}. {t}")
+
 while True:
-    task = input("Add a task (or 'q' to quit): ")
-    if task.lower() == "q":
+    print("\nChoose an option:")
+    print("A - Add a note")
+    print("L - List notes")
+    print("D - Delete a note")
+    print("Q - Quit")
+    choice = input("Your choice: ").strip().lower()
+
+    if choice == "a":
+        task = input("Enter a note: ").strip()
+        if task:
+            notes.append(task)
+            print("Note added.")
+    elif choice == "l":
+        show_notes(notes)
+    elif choice == "d":
+        show_notes(notes)
+        if notes:
+            num = input("Enter note number to delete: ").strip()
+            if num.isdigit():
+                idx = int(num) - 1
+                if 0 <= idx < len(notes):
+                    removed = notes.pop(idx)
+                    print(f"Deleted: {removed}")
+                else:
+                    print("Invalid note number.")
+            else:
+                print("Please enter a number.")
+    elif choice == "q":
         break
-    notes.append(task)
+    else:
+        print("Unknown option, try again.")
 
-print("\nYour tasks:")
-for t in notes:
-    print("-", t)
-
+# Save notes back to file
 with open(FILENAME, "w") as f:
     for t in notes:
         f.write(t + "\n")
 
 print("\nNotes saved to", FILENAME)
+
 
