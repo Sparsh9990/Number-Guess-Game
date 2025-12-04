@@ -1,2 +1,0 @@
-Hello from Python!
-This will be saved in a file.
