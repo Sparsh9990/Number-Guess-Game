@@ -33,3 +33,10 @@ while True:
 print("\nYour tasks:")
 for t in notes:
     print("-", t)
+
+with open(FILENAME, "w") as f:
+    for t in notes:
+        f.write(t + "\n")
+
+print("\nNotes saved to", FILENAME)
+
